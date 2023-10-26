@@ -1,0 +1,188 @@
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+}
+html {
+    font-size: 90%;
+}
+body{
+    font-family: "Montserrat";
+    background: #9796f0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F196BE, #9796f0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F196BE, #9796f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+i, svg {
+    pointer-events : none;
+}
+.kick-pad, .snare-pad, .hihat-pad {
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem 0.5rem;
+    cursor: pointer;
+}
+.kick-pad{
+    background: rgb(95, 74, 139);
+} 
+.snare-pad{
+    background: rgb(0, 32, 63);
+} 
+.hihat-pad{
+    background: rgba(133, 81, 18, 0.911);
+}
+.kick-pad.active{
+    background: rgba(156, 0, 117, 0.829);
+} 
+.snare-pad.active{
+    background: rgba(156, 0, 117, 0.829);
+} 
+.hihat-pad.active{
+    background: rgba(156, 0, 117, 0.829);
+}
+.sequencer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.hihat-track, .snare-track, .kick-track {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: center;
+    margin-top: 5rem;
+}
+.kick, .snare, .hihat {
+    display: flex;
+}
+.controls {
+    display:flex ;
+    flex-direction: column;
+    justify-content: space;
+    align-items: center;
+    text-align: center;
+    /* flex: 1; */
+    margin: 0rem 3rem;
+}
+.ctrl {
+    margin-top: 0.5rem;
+}
+.text  {
+    font-size: 1.2rem;
+}
+.controls button{
+    background-image: linear-gradient(120deg,#e67171, #cb1c67);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.5s ease;
+}
+option, select{
+    background: #F196BE;
+    background-image: linear-gradient(120deg,#e67171, #cb1c67);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+    margin-left: 1rem ;
+}
+.pad {
+    transition: all 0.5s ease;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+}
+
+
+.mute.active {
+    background: rgba(156, 0, 117, 0.829);
+}
+.tempo {
+    margin: 2rem 0.5rem;
+    width: 30%;
+}
+.tempo-slider {
+    padding: 0.1rem;
+    -webkit-appearance: none;
+    margin: 1rem 0rem;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    background: #cb1c67;
+    border-radius: 1rem;
+}
+.tempo-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: black;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+
+}
+.tempo p {
+    font-size: 1.2rem;
+    margin: 0.1rem;
+    text-align: center;
+}
+
+
+@keyframes playTrack {
+    from {
+        transform: scale(1);        
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+/* Play Button */
+
+.play {
+    padding: 1rem 3.5rem;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    margin-top: 3rem;    
+    position: relative;
+    border-radius: 1rem;
+    outline: none;
+    background: linear-gradient(90deg, #EC37D0, #D92B2B, #FFAA0D, #EC37D0);
+    background-size: 400%;
+    color: #fff;
+}
+.play::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, #EC37D0, #D92B2B, #FFAA0D, #EC37D0);
+    background-size: 400%;
+    border-radius: 3rem;
+    opacity: 0;
+    transition: .3s;
+}
+.play:hover {
+    animation: animate 10s linear infinite;
+}
+.play:hover::before {
+    filter: blur(25px);
+    opacity: .8;
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 400%;
+    }
+  }
+
